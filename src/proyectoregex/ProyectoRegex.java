@@ -10,10 +10,9 @@ import javax.swing.JOptionPane;
  */
 public class ProyectoRegex {
 
-    
     public static void main(String[] args) {
-        
-        String regex,cadena;
+
+        /* String regex,cadena;
         int cont=0;
         Pattern p;
         Matcher m;
@@ -37,13 +36,41 @@ public class ProyectoRegex {
             String mensaje = String.format("El se encontró %d veces en la cadena\nEstá en las siguientes posiciones:\n%s",cont ,sb.toString());
             JOptionPane.showConfirmDialog(null, mensaje);
         }
-        /*if(m.matches()){
+        if(m.matches()){
             JOptionPane.showMessageDialog(null, "Es válido");
         }
         else {
             JOptionPane.showMessageDialog(null, "No es válido");
         }
-        */
+         */
+        //PLACAS DE CARROS EN COLOMBIA
+        //primero un string que va hacer el regex
+        
+        String regex = "^[A-Z]{3}-?[0-9]{3}$"; //debe ir asi sin espacios
+        Pattern pattern = Pattern.compile(regex);
+        
+        //Declaracion de ejemplos de prueba
+        
+        String textoPrueba;
+        String casosValidos[] = {"ASV-558", "FGG887", "DDE445"};
+        String casosInValidos[] = {"AdV-558", "fG887", "DDE44f"};
+        
+        //Mostrar ejemplos
+        
+        System.out.println("DEMOSTRACIoN DE CASOS VALIDOS E INVALIDOS");
+        System.out.println("\n---Probando Cadenas Válidas---");
+        for (int i = 0; i < casosValidos.length; i++) {
+         String texto = casosValidos[i];
+            boolean resultado = pattern.matcher(texto).matches();
+            System.out.println("El texto \"" + texto + "\" ¿Coincide? (true) " + resultado);
+        }
+        for(int i=0; i < casosInValidos.length; i++){
+            String texto = casosInValidos[i];//extrae el texto que queremos probar
+            boolean resultado = pattern.matcher(texto).matches(); //booleano porque busca el texto .matches y devuelve un true si coincide y un false sino
+            System.out.println("El texto \"" + texto + "\" ¿No Coincide? (false) " + resultado);
+        }
+        textoPrueba = "Mi carro tiene la placa ABC-334 y el de mi novia es de AFK556";
+
     }
-    
+
 }
