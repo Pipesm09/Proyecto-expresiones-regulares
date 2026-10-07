@@ -232,11 +232,12 @@ public class ProyectoRegex {
             System.out.println(" El texto \"" + texto + "\" Coincide? (true): " + resultado);
         }
 
+        // Cambia este bloque dentro de probarRegex:
         System.out.println("Casos invalidos:");
         for (int i = 0; i < casosInValidos.length; i++) {
             String texto = casosInValidos[i];
             boolean resultado = pattern.matcher(texto).matches();
-            System.out.println(" El texto \"" + texto + "\" No coincide? (false): " + !resultado);
+            System.out.println(" El texto \"" + texto + "\" Coincide? (esperado false): " + resultado);
         }
         System.out.println();
     }
